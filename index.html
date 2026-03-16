@@ -6,15 +6,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emora - Your Personal Mood Tracker</title>
     <meta name="description" content="Track your moods, discover patterns, and improve your mental well-being with Emora." />
+    <link rel="stylesheet" href="/src/style.css" />
   </head>
   <body>
-    <header>
+    <div class="bg-decoration"></div>
+    
+    <header id="main-header">
       <div class="container">
         <a href="/" class="logo">
           <img src="/logo.png" alt="Emora Logo">
           <span>Emora</span>
         </a>
-        <nav>
+        <nav id="nav-menu">
           <ul>
             <li><a href="/" class="active">Home</a></li>
             <li><a href="/about.html">About Us</a></li>
@@ -24,29 +27,182 @@
             <li><a href="/contact.html">Contact Us</a></li>
           </ul>
         </nav>
-        <a href="/subscription.html" class="btn btn-primary">Get App</a>
+        <div class="header-actions">
+          <a href="/subscription.html" class="btn btn-primary">Get App</a>
+          <button id="mobile-menu-toggle" aria-label="Toggle Menu">
+            <span></span><span></span><span></span>
+          </button>
+        </div>
       </div>
     </header>
 
     <main>
-      <section class="hero">
+      <!-- Hero Section -->
+      <section class="hero reveal">
         <div class="container">
-          <h1>Track Your Mood,<br>Transform Your Life</h1>
-          <p>Emora helps you understand your emotional journey with simple, intuitive mood tracking and deep insights.</p>
-          <div class="hero-btns">
-            <a href="#" class="btn btn-primary">Download Now</a>
-            <a href="/about.html" class="btn btn-outline">Learn More</a>
+          <div class="hero-content">
+            <span class="badge">New: AI Pattern Recognition</span>
+            <h1>Track Your Mood,<br><span class="text-gradient">Transform Your Life</span></h1>
+            <p>Emora helps you understand your emotional journey with simple, intuitive mood tracking and deep insights that empower your mental well-being.</p>
+            <div class="hero-btns">
+              <a href="#" class="btn btn-primary btn-lg">Download App</a>
+              <a href="/about.html" class="btn btn-outline btn-lg">Watch Demo</a>
+            </div>
+            <div class="hero-stats">
+              <div class="stat-item"><strong>50k+</strong><span>Active Users</span></div>
+              <div class="stat-item"><strong>4.9/5</strong><span>App Store</span></div>
+            </div>
           </div>
-          <div class="mockup-container">
-            <!-- App mockup will be generated -->
-            <img src="/hero-mockup.png" alt="Emora App Mockup" class="mockup">
+          <div class="hero-image parallax" data-speed="0.05">
+            <div class="mockup-wrapper">
+              <img src="/hero-mockup.png" alt="Emora App Mockup" class="mockup-main">
+              <div class="floating-element element-1"><img src="/logo.png" alt="App Icon"></div>
+              <div class="floating-element element-2"><span>Happy Day!</span></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Features Section -->
+      <section id="features" class="section reveal">
+        <div class="container">
+          <div class="section-header">
+            <h2>Why Choose Emora?</h2>
+            <p>Designed for humans, powered by science.</p>
+          </div>
+          <div class="feature-grid">
+            <div class="feature-card glass">
+              <div class="feature-icon">🌿</div>
+              <h3>Simple Entry</h3>
+              <p>Log your mood in seconds with our intuitive emoji-based selector.</p>
+            </div>
+            <div class="feature-card glass">
+              <div class="feature-icon">📊</div>
+              <h3>Deep Insights</h3>
+              <p>Identify triggers and patterns with beautiful, easy-to-read charts.</p>
+            </div>
+            <div class="feature-card glass">
+              <div class="feature-icon">🔒</div>
+              <h3>Private & Secure</h3>
+              <p>Your data is yours alone. We use military-grade encryption.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- How it Works Section -->
+      <section id="how-it-works" class="section bg-light reveal">
+        <div class="container">
+          <div class="split-layout">
+            <div class="split-image">
+              <img src="/feature-chart.png" alt="Mood Analytics" class="img-rounded shadow-lg">
+            </div>
+            <div class="split-content">
+              <h2>Visualize Your Progress</h2>
+              <div class="steps">
+                <div class="step-item">
+                  <div class="step-num">1</div>
+                  <div>
+                    <h4>Check-in Daily</h4>
+                    <p>A quick 10-second check-in helps build a lifelong habit.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-num">2</div>
+                  <div>
+                    <h4>Uncover Patterns</h4>
+                    <p>See how your activities, sleep, and weather affect your mood.</p>
+                  </div>
+                </div>
+                <div class="step-item">
+                  <div class="step-num">3</div>
+                  <div>
+                    <h4>Improve Well-being</h4>
+                    <p>Use data-driven insights to make positive changes in your life.</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section id="testimonials" class="section reveal">
+        <div class="container">
+          <div class="section-header">
+            <h2>Loved by Thousands</h2>
+          </div>
+          <div class="testimonial-slider">
+            <div class="testimonial-card glass">
+              <p>"Emora has completely changed the way I look at my mental health. The insights are incredibly accurate!"</p>
+              <div class="user-info">
+                <div class="user-avatar">SA</div>
+                <div>
+                  <strong>Sarah Adams</strong>
+                  <span>Designer</span>
+                </div>
+              </div>
+            </div>
+            <div class="testimonial-card glass">
+              <p>"The cleanest UI I've ever used. It's actually a joy to log my mood every morning."</p>
+              <div class="user-info">
+                <div class="user-avatar">JM</div>
+                <div>
+                  <strong>James Miller</strong>
+                  <span>Developer</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <section class="cta section reveal">
+        <div class="container">
+          <div class="cta-box glass">
+            <h2>Ready to start your journey?</h2>
+            <p>Join over 50,000 users tracking their way to happiness.</p>
+            <div class="cta-btns">
+              <a href="#" class="btn btn-primary btn-lg">Get Started Free</a>
+            </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer>
-      <!-- Footer content -->
+    <footer class="reveal">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a href="/" class="logo">
+              <img src="/logo.png" alt="Emora Logo">
+              <span>Emora</span>
+            </a>
+            <p>Your companion for emotional clarity and mental well-being.</p>
+          </div>
+          <div class="footer-links">
+            <h4>Product</h4>
+            <ul>
+              <li><a href="#">Features</a></li>
+              <li><a href="/subscription.html">Pricing</a></li>
+              <li><a href="#">Security</a></li>
+            </ul>
+          </div>
+          <div class="footer-links">
+            <h4>Company</h4>
+            <ul>
+              <li><a href="/about.html">About</a></li>
+              <li><a href="/blog.html">Blog</a></li>
+              <li><a href="/contact.html">Contact</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2026 Emora. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script type="module" src="/src/main.js"></script>
