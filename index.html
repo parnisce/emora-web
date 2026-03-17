@@ -2,7 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/logo.png" />
+    <link rel="icon" type="image/png" href="/src/assets/emoraicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emora - Your Personal Mood Tracker</title>
     <meta name="description" content="Track your moods, discover patterns, and improve your mental well-being with Emora." />
@@ -12,25 +12,25 @@
     <div class="bg-decoration"></div>
     
     <header id="main-header">
-      <div class="container">
-        <a href="/" class="logo">
-          <img src="/logo.png" alt="Emora Logo">
+      <div class="container mx-auto px-6">
+        <a href="/" class="logo flex items-center gap-3 text-2xl font-extrabold text-[#82B954]">
+          <img src="/src/assets/emoraicon.png" alt="Emora Logo" class="h-11 w-auto">
           <span>Emora</span>
         </a>
         <nav id="nav-menu">
-          <ul>
-            <li><a href="/" class="active">Home</a></li>
-            <li><a href="/about.html">About Us</a></li>
-            <li><a href="/faq.html">FAQ</a></li>
-            <li><a href="/blog.html">Blog</a></li>
-            <li><a href="/subscription.html">Manage Subscription</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
+          <ul class="flex gap-8">
+            <li><a href="/" class="active font-bold text-[#82B954]">Home</a></li>
+            <li><a href="/about.html" class="font-semibold opacity-80 hover:opacity-100 hover:text-[#82B954]">About Us</a></li>
+            <li><a href="/faq.html" class="font-semibold opacity-80 hover:opacity-100 hover:text-[#82B954]">FAQ</a></li>
+            <li><a href="/blog.html" class="font-semibold opacity-80 hover:opacity-100 hover:text-[#82B954]">Blog</a></li>
+            <li><a href="/subscription.html" class="font-semibold opacity-80 hover:opacity-100 hover:text-[#82B954]">Manage Subscription</a></li>
+            <li><a href="/contact.html" class="font-semibold opacity-80 hover:opacity-100 hover:text-[#82B954]">Contact Us</a></li>
           </ul>
         </nav>
-        <div class="header-actions">
+        <div class="header-actions flex items-center gap-5">
           <a href="/subscription.html" class="btn btn-primary">Get App</a>
-          <button id="mobile-menu-toggle" aria-label="Toggle Menu">
-            <span></span><span></span><span></span>
+          <button id="mobile-menu-toggle" aria-label="Toggle Menu" class="hidden flex-col gap-1.5 p-1">
+            <span class="w-7 h-0.5 bg-[#2C3E50]"></span><span class="w-7 h-0.5 bg-[#2C3E50]"></span><span class="w-7 h-0.5 bg-[#2C3E50]"></span>
           </button>
         </div>
       </div>
@@ -38,26 +38,26 @@
 
     <main>
       <!-- Hero Section -->
-      <section class="hero reveal">
-        <div class="container">
+      <section class="hero reveal pt-[180px] pb-24 overflow-hidden">
+        <div class="container mx-auto px-6 grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] items-center gap-16">
           <div class="hero-content">
-            <span class="badge">New: AI Pattern Recognition</span>
-            <h1>Track Your Mood,<br><span class="text-gradient">Transform Your Life</span></h1>
-            <p>Emora helps you understand your emotional journey with simple, intuitive mood tracking and deep insights that empower your mental well-being.</p>
-            <div class="hero-btns">
+            <span class="badge mb-6 px-4 py-1.5 bg-[#E8F5E9] text-[#689943] rounded-full text-sm font-bold uppercase tracking-wider inline-block">New: AI Pattern Recognition</span>
+            <h1 class="text-5xl lg:text-7xl mb-6">Track Your Mood,<br><span class="text-gradient">Transform Your Life</span></h1>
+            <p class="text-xl text-gray-500 max-w-[580px] mb-12">Emora helps you understand your emotional journey with simple, intuitive mood tracking and deep insights that empower your mental well-being.</p>
+            <div class="hero-btns flex gap-5 mb-12">
               <a href="#" class="btn btn-primary btn-lg">Download App</a>
               <a href="/about.html" class="btn btn-outline btn-lg">Watch Demo</a>
             </div>
-            <div class="hero-stats">
-              <div class="stat-item"><strong>50k+</strong><span>Active Users</span></div>
-              <div class="stat-item"><strong>4.9/5</strong><span>App Store</span></div>
+            <div class="hero-stats flex gap-10">
+              <div class="stat-item flex flex-col"><strong>50k+</strong><span class="text-sm text-gray-500">Active Users</span></div>
+              <div class="stat-item flex flex-col"><strong>4.9/5</strong><span class="text-sm text-gray-500">App Store</span></div>
             </div>
           </div>
           <div class="hero-image parallax" data-speed="0.05">
-            <div class="mockup-wrapper">
-              <img src="/lifestyle-hero.png" alt="Person using Emora" class="mockup-main img-rounded">
-              <div class="floating-element element-1"><img src="/logo.png" alt="App Icon"></div>
-              <div class="floating-element element-2"><span>Happy Day!</span></div>
+            <div class="mockup-wrapper relative inline-block">
+              <img src="/src/assets/hero.png" alt="Person using Emora" class="mockup-main w-full max-w-[450px] rounded-[40px] shadow-2xl">
+              <div class="floating-element element-1 absolute top-[10%] -left-5 w-[70px] h-[70px] bg-white rounded-2xl p-3 shadow-lg flex items-center justify-center z-10"><img src="/src/assets/emoraicon.png" alt="App Icon" class="w-full"></div>
+              <div class="floating-element element-2 absolute bottom-[15%] -right-7 px-6 py-3 bg-white rounded-2xl shadow-lg font-bold text-[#82B954] z-10"><span>Happy Day!</span></div>
             </div>
           </div>
         </div>
@@ -65,60 +65,60 @@
 
       <!-- Features Section -->
       <section id="features" class="section reveal">
-        <div class="container">
-          <div class="section-header">
-            <h2>Why Choose Emora?</h2>
-            <p>Designed for humans, powered by science.</p>
+        <div class="container mx-auto px-6">
+          <div class="section-header text-center max-w-[700px] mx-auto mb-16">
+            <h2 class="text-5xl mb-4">Why Choose Emora?</h2>
+            <p class="text-xl text-gray-500">Designed for humans, powered by science.</p>
           </div>
-          <div class="feature-grid">
-            <div class="feature-card glass">
-              <div class="feature-icon">🌿</div>
-              <h3>Simple Entry</h3>
-              <p>Log your mood in seconds with our intuitive emoji-based selector.</p>
+          <div class="feature-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="feature-card glass p-12 rounded-[32px] transition-transform hover:-translate-y-2.5 hover:border-[#82B954]">
+              <div class="feature-icon w-16 h-16 bg-[#E8F5E9] rounded-2xl flex items-center justify-center text-3xl mb-6 transition-all">🌿</div>
+              <h3 class="text-2xl mb-4">Simple Entry</h3>
+              <p class="text-gray-500">Log your mood in seconds with our intuitive emoji-based selector.</p>
             </div>
-            <div class="feature-card glass">
-              <div class="feature-icon">📊</div>
-              <h3>Deep Insights</h3>
-              <p>Identify triggers and patterns with beautiful, easy-to-read charts.</p>
+            <div class="feature-card glass p-12 rounded-[32px] transition-transform hover:-translate-y-2.5 hover:border-[#82B954]">
+              <div class="feature-icon w-16 h-16 bg-[#E8F5E9] rounded-2xl flex items-center justify-center text-3xl mb-6 transition-all">📊</div>
+              <h3 class="text-2xl mb-4">Deep Insights</h3>
+              <p class="text-gray-500">Identify triggers and patterns with beautiful, easy-to-read charts.</p>
             </div>
-            <div class="feature-card glass">
-              <div class="feature-icon">🔒</div>
-              <h3>Private & Secure</h3>
-              <p>Your data is yours alone. We use military-grade encryption.</p>
+            <div class="feature-card glass p-12 rounded-[32px] transition-transform hover:-translate-y-2.5 hover:border-[#82B954]">
+              <div class="feature-icon w-16 h-16 bg-[#E8F5E9] rounded-2xl flex items-center justify-center text-3xl mb-6 transition-all">🔒</div>
+              <h3 class="text-2xl mb-4">Private & Secure</h3>
+              <p class="text-gray-500">Your data is yours alone. We use military-grade encryption.</p>
             </div>
           </div>
         </div>
       </section>
 
       <!-- How it Works Section -->
-      <section id="how-it-works" class="section bg-light reveal">
-        <div class="container">
-          <div class="split-layout">
+      <section id="how-it-works" class="section bg-gray-50 reveal">
+        <div class="container mx-auto px-6">
+          <div class="split-layout grid grid-cols-1 lg:grid-cols-2 items-center gap-20">
             <div class="split-image">
-              <img src="/feature-sleep.png" alt="Sleep Tracking" class="img-rounded shadow-lg">
+              <img src="/src/assets/hero.png" alt="Mood Tracking" class="w-full rounded-3xl shadow-2xl block">
             </div>
             <div class="split-content">
-              <h2>Visualize Your Progress</h2>
-              <div class="steps">
-                <div class="step-item">
-                  <div class="step-num">1</div>
+              <h2 class="text-5xl">Visualize Your Progress</h2>
+              <div class="steps flex flex-col gap-10 mt-10">
+                <div class="step-item flex gap-6">
+                  <div class="step-num w-11 h-11 min-w-[44px] bg-[#82B954] text-white rounded-xl flex items-center justify-center font-extrabold">1</div>
                   <div>
-                    <h4>Check-in Daily</h4>
-                    <p>A quick 10-second check-in helps build a lifelong habit.</p>
+                    <h4 class="text-xl mb-2">Check-in Daily</h4>
+                    <p class="text-gray-600">A quick 10-second check-in helps build a lifelong habit.</p>
                   </div>
                 </div>
-                <div class="step-item">
-                  <div class="step-num">2</div>
+                <div class="step-item flex gap-6">
+                  <div class="step-num w-11 h-11 min-w-[44px] bg-[#82B954] text-white rounded-xl flex items-center justify-center font-extrabold">2</div>
                   <div>
-                    <h4>Uncover Patterns</h4>
-                    <p>See how your activities, sleep, and weather affect your mood.</p>
+                    <h4 class="text-xl mb-2">Uncover Patterns</h4>
+                    <p class="text-gray-600">See how your activities, sleep, and weather affect your mood.</p>
                   </div>
                 </div>
-                <div class="step-item">
-                  <div class="step-num">3</div>
+                <div class="step-item flex gap-6">
+                  <div class="step-num w-11 h-11 min-w-[44px] bg-[#82B954] text-white rounded-xl flex items-center justify-center font-extrabold">3</div>
                   <div>
-                    <h4>Improve Well-being</h4>
-                    <p>Use data-driven insights to make positive changes in your life.</p>
+                    <h4 class="text-xl mb-2">Improve Well-being</h4>
+                    <p class="text-gray-600">Use data-driven insights to make positive changes in your life.</p>
                   </div>
                 </div>
               </div>
@@ -129,28 +129,28 @@
 
       <!-- Testimonials -->
       <section id="testimonials" class="section reveal">
-        <div class="container">
-          <div class="section-header">
-            <h2>Loved by Thousands</h2>
+        <div class="container mx-auto px-6">
+          <div class="section-header text-center max-w-[700px] mx-auto mb-16">
+            <h2 class="text-5xl mb-4">Loved by Thousands</h2>
           </div>
-          <div class="testimonial-slider">
-            <div class="testimonial-card glass">
+          <div class="testimonial-slider grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="testimonial-card glass p-10 rounded-[32px] italic text-lg">
               <p>"Emora has completely changed the way I look at my mental health. The insights are incredibly accurate!"</p>
-              <div class="user-info">
-                <div class="user-avatar">SA</div>
+              <div class="user-info mt-8 flex items-center gap-4 not-italic">
+                <div class="user-avatar w-12 h-12 bg-[#2C3E50] text-white rounded-full flex items-center justify-center font-bold">SA</div>
                 <div>
-                  <strong>Sarah Adams</strong>
-                  <span>Designer</span>
+                  <strong class="font-bold">Sarah Adams</strong>
+                  <span class="text-sm block">Designer</span>
                 </div>
               </div>
             </div>
-            <div class="testimonial-card glass">
+            <div class="testimonial-card glass p-10 rounded-[32px] italic text-lg">
               <p>"The cleanest UI I've ever used. It's actually a joy to log my mood every morning."</p>
-              <div class="user-info">
-                <div class="user-avatar">JM</div>
+              <div class="user-info mt-8 flex items-center gap-4 not-italic">
+                <div class="user-avatar w-12 h-12 bg-[#2C3E50] text-white rounded-full flex items-center justify-center font-bold">JM</div>
                 <div>
-                  <strong>James Miller</strong>
-                  <span>Developer</span>
+                  <strong class="font-bold">James Miller</strong>
+                  <span class="text-sm block">Developer</span>
                 </div>
               </div>
             </div>
@@ -160,51 +160,51 @@
 
       <!-- CTA -->
       <section class="cta section reveal">
-        <div class="container">
-          <div class="cta-box glass">
-            <h2>Ready to start your journey?</h2>
-            <p>Join over 50,000 users tracking their way to happiness.</p>
-            <div class="cta-btns">
-              <a href="#" class="btn btn-primary btn-lg">Get Started Free</a>
+        <div class="container mx-auto px-6">
+          <div class="cta-box p-20 rounded-[40px] text-center bg-gradient-to-br from-[#82B954] to-[#689943] text-white border-none shadow-xl">
+            <h2 class="text-white text-5xl mb-4">Ready to start your journey?</h2>
+            <p class="text-xl opacity-90 mb-10">Join over 50,000 users tracking their way to happiness.</p>
+            <div class="cta-btns flex justify-center gap-5">
+              <a href="#" class="btn bg-white text-[#689943] btn-lg hover:shadow-lg transition-all">Get Started Free</a>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="reveal">
-      <div class="container">
-        <div class="footer-grid">
-          <div class="footer-brand">
-            <a href="/" class="logo">
-              <img src="/logo.png" alt="Emora Logo">
+    <footer class="reveal pt-24 pb-10 bg-gray-50 border-t border-gray-200">
+      <div class="container mx-auto px-6">
+        <div class="footer-grid grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-16 mb-20">
+          <div class="footer-brand flex flex-col items-start">
+            <a href="/" class="logo flex items-center gap-3 text-2xl font-extrabold text-[#82B954]">
+              <img src="/src/assets/emoraicon.png" alt="Emora Logo" class="h-11 w-auto">
               <span>Emora</span>
             </a>
-            <p>Your companion for emotional clarity and mental well-being.</p>
+            <p class="mt-5 text-gray-500 max-w-[300px]">Your companion for emotional clarity and mental well-being.</p>
           </div>
           <div class="footer-links">
-            <h4>Product</h4>
-            <ul>
-              <li><a href="#">Features</a></li>
-              <li><a href="/subscription.html">Pricing</a></li>
-              <li><a href="#">Security</a></li>
+            <h4 class="mb-6 font-bold text-lg">Product</h4>
+            <ul class="flex flex-col gap-3">
+              <li><a href="#" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Features</a></li>
+              <li><a href="/subscription.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Pricing</a></li>
+              <li><a href="#" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Security</a></li>
             </ul>
           </div>
           <div class="footer-links">
-            <h4>Company</h4>
-            <ul>
-              <li><a href="/about.html">About</a></li>
-              <li><a href="/blog.html">Blog</a></li>
-              <li><a href="/contact.html">Contact</a></li>
+            <h4 class="mb-6 font-bold text-lg">Company</h4>
+            <ul class="flex flex-col gap-3">
+              <li><a href="/about.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">About</a></li>
+              <li><a href="/blog.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Blog</a></li>
+              <li><a href="/contact.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Contact</a></li>
             </ul>
           </div>
         </div>
-        <div class="footer-bottom">
+        <div class="footer-bottom pt-10 border-t border-gray-200 text-center text-gray-500 text-sm">
           <p>&copy; 2026 Emora. All rights reserved.</p>
         </div>
       </div>
     </footer>
 
-    <script type="module" src="/src/main.js"></script>
+    <script type="module" src="/src/main.ts"></script>
   </body>
 </html>
