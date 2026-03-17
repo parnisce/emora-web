@@ -37,6 +37,7 @@
 
   .text-gradient {
     @apply bg-clip-text text-transparent bg-gradient-to-r from-[#82B954] to-[#689943];
+    -webkit-background-clip: text;
   }
 
   .glass {
