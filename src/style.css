@@ -60,7 +60,7 @@
   /* Responsive Grid Adjustments */
   @media (max-width: 640px) {
     .feature-grid, .footer-grid, .benefit-grid, .pricing-grid {
-      @apply grid-cols-1 !important;
+      @apply !grid-cols-1;
     }
   }
 
