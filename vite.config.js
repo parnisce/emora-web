@@ -15,6 +15,7 @@ export default defineConfig({
         blog: resolve(__dirname, 'blog.html'),
         subscription: resolve(__dirname, 'subscription.html'),
         contact: resolve(__dirname, 'contact.html'),
+        download: resolve(__dirname, 'download.html'),
       },
     },
   },

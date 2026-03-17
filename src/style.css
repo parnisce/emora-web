@@ -1,6 +1,6 @@
-@import "tailwindcss";
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap');
+@import "tailwindcss";
+@variant dark (&:where(.dark, .dark *));
 
 @layer base {
   :root {
@@ -12,25 +12,87 @@
     --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
+  .dark {
+    --primary-light: #1B2C1C;
+    --secondary: #F8FAFC;
+  }
+
   html {
     scroll-behavior: smooth;
   }
 
   body {
     @apply font-sans text-gray-800 bg-white overflow-x-hidden antialiased;
+    @apply dark:bg-black dark:text-white;
     font-family: 'Inter', sans-serif;
+    cursor: none; /* Hide default cursor */
+  }
+
+  a, button, [role="button"], .interactive {
+    cursor: none !important;
   }
 
   h1, h2, h3, h4 {
-    @apply font-bold leading-tight text-[#2C3E50];
+    @apply font-bold leading-tight text-slate-900 dark:text-white;
     font-family: 'Outfit', sans-serif;
+  }
+
+  p {
+    @apply text-slate-600 dark:text-slate-300;
+  }
+
+  /* Global Layout Constaints */
+  .container {
+    @apply w-full mx-auto px-6 lg:px-8;
+    max-width: 1280px !important;
+  }
+
+  .max-w-7xl {
+    max-width: 1280px !important;
+  }
+
+  /* Responsive Typography Fixes */
+  @media (max-width: 768px) {
+    h1 { @apply text-4xl leading-tight; }
+    h2 { @apply text-3xl; }
+  }
+
+  /* Responsive Grid Adjustments */
+  @media (max-width: 640px) {
+    .feature-grid, .footer-grid, .benefit-grid, .pricing-grid {
+      @apply grid-cols-1 !important;
+    }
+  }
+
+  /* Responsive Spacing */
+  .p-10, .p-12 {
+    @apply p-8 lg:p-12;
   }
 }
 
 @layer components {
+  /* Mobile Menu Styles */
+  #mobile-menu-toggle {
+    @apply flex lg:hidden;
+  }
+
+  @media (max-width: 1024px) {
+    #nav-menu {
+      @apply fixed top-20 left-0 w-full bg-white/95 dark:bg-black/95 backdrop-blur-2xl border-b border-gray-100 dark:border-white/10 p-10 flex-col items-center gap-6 translate-y-[-100%] opacity-0 invisible transition-all duration-500 z-[999];
+    }
+    
+    #nav-menu.active {
+      @apply translate-y-0 opacity-100 visible;
+    }
+
+    #nav-menu ul {
+      @apply flex flex-col items-center gap-6;
+    }
+  }
+
   .bg-decoration {
     @apply fixed top-0 left-0 w-full h-full opacity-15 pointer-events-none -z-10;
-    background-image: url('/bg-pattern.png'); /* Keep if exists, else it will just be empty */
+    background-image: url('/bg-pattern.png');
     background-size: cover;
     background-position: center;
   }
@@ -42,6 +104,7 @@
 
   .glass {
     @apply bg-white/70 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_0_rgba(31,38,135,0.07)];
+    @apply dark:bg-slate-900/50 dark:border-white/10;
   }
 
   .btn {
@@ -71,7 +134,36 @@
 
   /* Custom header styles that are easier to keep as is but with tailwind classes */
   #main-header.scrolled {
-    @apply h-[70px] bg-white/95 shadow-md;
+    @apply h-[70px] bg-white/95 shadow-md dark:bg-black/95 dark:border-white/10;
+  }
+  
+  #main-header {
+    @apply dark:bg-black/95 dark:border-white/10;
+  }
+
+  #nav-menu {
+    @apply hidden lg:block;
+  }
+
+  .section {
+    @apply py-12 lg:py-32;
+  }
+
+  .section-header h2 {
+    @apply text-3xl lg:text-5xl;
+  }
+
+  .hero {
+    @apply pt-32 lg:pt-[180px] pb-12 lg:pb-24;
+  }
+
+  /* Explicit overrides for dark mode secondary backgrounds */
+  .bg-gray-50 {
+    @apply dark:bg-zinc-900/50;
+  }
+  
+  footer.bg-gray-50 {
+    @apply dark:bg-black;
   }
 }
 
@@ -92,4 +184,176 @@
 
 .floating-element {
   animation: float-slow 8s ease-in-out infinite;
+}
+
+/* Custom Cursor */
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 10000;
+  pointer-events: none;
+  transition: transform 0.1s ease;
+}
+
+.cursor-outline {
+  width: 40px;
+  height: 40px;
+  border: 2px solid var(--primary);
+  position: fixed;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  z-index: 9999;
+  pointer-events: none;
+  transition: transform 0.15s ease-out, width 0.3s ease, height 0.3s ease, background-color 0.3s ease;
+  opacity: 0.5;
+}
+
+.cursor-outline.hover {
+  width: 60px;
+  height: 60px;
+  background-color: var(--primary-glow);
+  border-color: transparent;
+  opacity: 1;
+}
+
+/* Hide cursor on mobile */
+@media (max-width: 1024px) {
+  .cursor-dot, .cursor-outline {
+    display: none;
+  }
+  body, a, button {
+    cursor: auto !important;
+  }
+}
+
+/* FAQ Accordion */
+.faq-card {
+  @apply bg-slate-50 dark:bg-white/5 p-6 rounded-[32px] mb-4 cursor-pointer transition-all duration-300 border border-transparent;
+}
+
+.faq-card.active {
+  @apply border-[#82B954]/30 bg-[#82B954]/5;
+}
+
+.faq-card .answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.faq-card.active .answer {
+  max-height: 500px;
+  opacity: 1;
+  @apply mt-4;
+}
+
+.faq-icon {
+  @apply transition-transform duration-300;
+}
+
+.faq-card.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Category Pills */
+.category-pill {
+  @apply px-6 py-2 rounded-full text-sm font-semibold transition-all whitespace-nowrap border border-gray-100 dark:border-white/10;
+  @apply text-gray-400 hover:text-[#82B954] hover:border-[#82B954]/30;
+}
+
+.category-pill.active {
+  @apply bg-[#82B954] text-white border-[#82B954];
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none; /* Chrome, Safari and Opera */
+}
+
+/* Blog Styles */
+.blog-card {
+  @apply flex flex-col h-full bg-white dark:bg-white/5 rounded-[40px] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-emerald-500/10;
+}
+
+.blog-card-image-wrap {
+  @apply relative aspect-[16/10] overflow-hidden;
+}
+
+.blog-card-image {
+  @apply w-full h-full object-cover transition-transform duration-700;
+}
+
+.blog-card:hover .blog-card-image {
+  @apply scale-110;
+}
+
+.blog-card-content {
+  @apply p-8 flex flex-col flex-grow;
+}
+
+.blog-tag {
+  @apply px-4 py-1.5 rounded-full text-xs font-bold tracking-wider uppercase mb-4 w-fit transition-colors;
+}
+
+.tag-health { @apply bg-emerald-100 text-emerald-700 dark:bg-emerald-500/10 dark:text-emerald-400; }
+.tag-lifestyle { @apply bg-blue-100 text-blue-700 dark:bg-blue-500/10 dark:text-blue-400; }
+.tag-science { @apply bg-purple-100 text-purple-700 dark:bg-purple-500/10 dark:text-purple-400; }
+.tag-tech { @apply bg-amber-100 text-amber-700 dark:bg-amber-500/10 dark:text-amber-400; }
+
+.blog-card-title {
+  @apply text-2xl font-bold mb-3 text-slate-900 dark:text-white leading-tight hover:text-emerald-500 transition-colors cursor-pointer;
+}
+
+.blog-card-excerpt {
+  @apply text-gray-500 dark:text-gray-400 text-base leading-relaxed mb-6 line-clamp-3;
+}
+
+.blog-card-footer {
+  @apply mt-auto pt-6 border-t border-gray-100 dark:border-white/5 flex items-center justify-between;
+}
+
+.blog-author {
+  @apply flex items-center gap-3;
+}
+
+.author-name {
+  @apply text-sm font-semibold text-slate-700 dark:text-gray-300;
+}
+
+.read-time {
+  @apply text-xs text-gray-400;
+}
+
+/* Web Subscription Pricing Styles */
+.pricing-card {
+  @apply backdrop-blur-xl bg-white/40 dark:bg-black/40 transition-all duration-500;
+}
+
+.pricing-card:hover {
+  @apply -translate-y-2 shadow-2xl;
+}
+
+#price-toggle-btn.yearly .dot {
+  @apply translate-x-8;
+}
+
+#price-toggle-btn.yearly {
+  @apply bg-[#82B954];
+}
+
+.text-gradient {
+  background: linear-gradient(135deg, #82B954 0%, #2ecc71 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

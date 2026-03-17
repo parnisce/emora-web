@@ -7,14 +7,14 @@
     <title>FAQ - Emora Help Center</title>
     <link rel="stylesheet" href="/src/style.css" />
   </head>
-  <body class="bg-white">
+  <body>
     <div class="bg-decoration"></div>
     
-    <header id="main-header" class="fixed top-0 w-full z-[1000] h-20 flex items-center bg-white/80 backdrop-blur-2xl border-b border-gray-100 transition-all duration-300">
+    <header id="main-header" class="fixed top-0 w-full z-[1000] h-20 flex items-center bg-white/80 dark:bg-black/95 backdrop-blur-2xl border-b border-gray-100 dark:border-white/10 transition-all duration-300">
       <div class="container mx-auto px-6 flex justify-between items-center w-full">
         <a href="/" class="logo flex items-center gap-3 text-2xl font-extrabold text-[#82B954]">
-          <img src="/src/assets/emoraicon.png" alt="Emora Logo" class="h-11 w-auto">
-          <span>Emora</span>
+          <img src="/src/assets/emoraicon.png" alt="Emora AI Logo" class="h-11 w-auto">
+          <span>Emora AI</span>
         </a>
         <nav id="nav-menu">
           <ul class="flex gap-8">
@@ -27,45 +27,217 @@
           </ul>
         </nav>
         <div class="header-actions flex items-center gap-5">
-          <a href="/subscription.html" class="btn btn-primary">Get App</a>
+          <button id="theme-toggle" class="p-2 rounded-full hover:bg-gray-100 dark:hover:bg-slate-800 transition-colors" aria-label="Toggle Theme">
+            <span class="dark:hidden">🌙</span>
+            <span class="hidden dark:inline">☀️</span>
+          </button>
+          <a href="/download.html" class="btn btn-primary">Get App</a>
           <button id="mobile-menu-toggle" aria-label="Toggle Menu" class="hidden flex-col gap-1.5 p-1">
-            <span class="w-7 h-0.5 bg-[#2C3E50]"></span><span class="w-7 h-0.5 bg-[#2C3E50]"></span><span class="w-7 h-0.5 bg-[#2C3E50]"></span>
+            <span class="w-7 h-0.5 bg-[#2C3E50] dark:bg-white"></span>
+            <span class="w-7 h-0.5 bg-[#2C3E50] dark:bg-white"></span>
+            <span class="w-7 h-0.5 bg-[#2C3E50] dark:bg-white"></span>
           </button>
         </div>
       </div>
     </header>
 
     <main class="pt-32 pb-20">
-      <section class="hero reveal pt-20 pb-16 text-center">
+      <section class="hero reveal pt-20 pb-12 text-center">
         <div class="container mx-auto px-6">
           <h1 class="text-5xl lg:text-7xl mb-6">Frequently Asked <span class="text-gradient">Questions</span></h1>
           <p class="text-xl text-gray-500 max-w-2xl mx-auto">Find answers to common questions about Emora.</p>
         </div>
       </section>
+
+      <!-- Category Selector -->
+      <section class="reveal mb-12">
+        <div class="container mx-auto px-6">
+          <div class="flex gap-3 overflow-x-auto hide-scrollbar pb-4 justify-start md:justify-center">
+            <button class="category-pill active" data-category="all">All Questions</button>
+            <button class="category-pill" data-category="general">General</button>
+            <button class="category-pill" data-category="privacy">Privacy & Security</button>
+            <button class="category-pill" data-category="features">Features</button>
+            <button class="category-pill" data-category="billing">Billing</button>
+            <button class="category-pill" data-category="tech">Technical</button>
+          </div>
+        </div>
+      </section>
       
-      <section class="faq-list reveal pt-12">
-        <div class="container mx-auto px-6 max-w-3xl">
-          <div class="space-y-6">
-            <div class="faq-item glass p-8 rounded-[32px]">
-              <h3 class="text-2xl mb-4 font-bold text-[#2C3E50]">Is my data private?</h3>
-              <p class="text-gray-600 text-lg">Absolutely. We use end-to-end encryption to ensure only you can access your mood data.</p>
+      <section class="faq-list reveal">
+        <div class="container mx-auto px-6 max-w-4xl">
+          <div class="space-y-4">
+            <!-- General -->
+            <div class="faq-category-section" data-category="general">
+              <h2 class="text-2xl font-bold mb-6 text-gray-400">01 General</h2>
+              <div class="faq-card" data-category="general">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">What is Emora AI?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Emora AI is an advanced emotional health companion that uses artificial intelligence to help you track, understand, and improve your mental well-being through pattern recognition and personalized insights.
+                </div>
+              </div>
+              <div class="faq-card" data-category="general">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">How does the mood tracking work?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  You can log your mood using emojis, text descriptions, or even voice notes. Our AI analyzes your entries, looking for correlations between your activities, sleep, and emotional states.
+                </div>
+              </div>
+              <div class="faq-card" data-category="general">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Is Emora AI free to use?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Yes, Emora AI offers a free version with core tracking features. We also offer a Premium subscription for advanced AI insights, unlimited voice logs, and data exporting features.
+                </div>
+              </div>
             </div>
-            <div class="faq-item glass p-8 rounded-[32px]">
-              <h3 class="text-2xl mb-4 font-bold text-[#2C3E50]">Can I export my data?</h3>
-              <p class="text-gray-600 text-lg">Yes, you can export your mood logs in PDF or CSV format at any time.</p>
+
+            <!-- Privacy -->
+            <div class="faq-category-section mt-12" data-category="privacy">
+              <h2 class="text-2xl font-bold mb-6 text-gray-400">02 Privacy & Security</h2>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Is my personal data safe?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Absolutely. We use industry-standard AES-256 encryption for all stored data. Your emotional logs are private and encrypted at rest and in transit.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Who can see my mood entries?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Only you. Emora AI employees cannot access your private logs. The AI processing happens securely, and only aggregated, anonymized data is used for improving the system.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">How do you protect my privacy from hackers?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  We implement multi-factor authentication (MFA) options, session monitoring, and regular security audits to ensure your data remains protected against unauthorized access.
+                </div>
+              </div>
             </div>
+
+            <!-- Features -->
+            <div class="faq-category-section mt-12" data-category="features">
+              <h2 class="text-2xl font-bold mb-6 text-gray-400">03 Features & Insights</h2>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">What are "AI Patterns"?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  AI Patterns are hidden correlations our system finds in your data—like how your mood might consistently improve after light exercise or dip during rainy weather.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Can I log my mood via voice?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Yes! Our voice recognition feature allows you to speak freely about your day, and the AI will transcribe and analyze the emotional sentiment for you.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Can I export my data for my therapist?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Definitely. You can generate professional PDF reports or CSV exports of your mood trends to share with your healthcare providers.
+                </div>
+              </div>
+            </div>
+
+            <!-- Billing -->
+            <div class="faq-category-section mt-12" data-category="billing">
+              <h2 class="text-2xl font-bold mb-6 text-gray-400">04 Billing & Pricing</h2>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">How do I manage my subscription?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  You can manage your billing, change plans, or cancel anytime through the "Manage Subscription" section in the app settings or on our website.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Is there a refund policy?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  We offer a 14-day money-back guarantee for all new Premium subscriptions if you're not completely satisfied with the features.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Do you offer student discounts?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Yes! We believe mental health tools should be accessible. Students can get 50% off Emora Premium by verifying their student ID.
+                </div>
+              </div>
+            </div>
+
+            <!-- Technical -->
+            <div class="faq-category-section mt-12" data-category="tech">
+              <h2 class="text-2xl font-bold mb-6 text-gray-400">05 Technical & Support</h2>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Which devices does Emora AI support?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Emora AI is available on iOS (iPhone), Android, and as a web application accessible via any modern browser on your desktop.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">Does the app work offline?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  You can still log your moods offline. Your data will securely sync to the cloud as soon as you regain an internet connection.
+                </div>
+              </div>
+              <div class="faq-card">
+                <div class="flex justify-between items-center">
+                  <h3 class="text-xl font-bold text-slate-900 dark:text-white">How can I contact customer support?</h3>
+                  <span class="faq-icon text-2xl text-[#82B954]">+</span>
+                </div>
+                <div class="answer text-gray-600 dark:text-gray-400 leading-relaxed">
+                  You can reach our support team via the "Contact Us" page or by emailing support@emora.ai. We typically respond within 24 hours.
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </section>
     </main>
 
-    <footer class="pt-24 pb-10 bg-gray-50 border-t border-gray-200">
+    <footer class="pt-24 pb-10 bg-gray-50 dark:bg-zinc-900 border-t border-gray-200 dark:border-white/10">
       <div class="container mx-auto px-6">
         <div class="footer-grid grid grid-cols-1 md:grid-cols-[2fr_1fr_1fr] gap-16 mb-20">
           <div class="footer-brand flex flex-col items-start">
             <a href="/" class="logo flex items-center gap-3 text-2xl font-extrabold text-[#82B954]">
-              <img src="/src/assets/emoraicon.png" alt="Emora Logo" class="h-11 w-auto">
-              <span>Emora</span>
+              <img src="/src/assets/emoraicon.png" alt="Emora AI Logo" class="h-11 w-auto">
+              <span>Emora AI</span>
             </a>
             <p class="mt-5 text-gray-500 max-w-[300px]">Your companion for emotional clarity and mental well-being.</p>
           </div>
@@ -74,6 +246,7 @@
             <ul class="flex flex-col gap-3">
               <li><a href="#" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Features</a></li>
               <li><a href="/subscription.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Pricing</a></li>
+              <li><a href="/download.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Download App</a></li>
               <li><a href="#" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Security</a></li>
             </ul>
           </div>
@@ -83,11 +256,13 @@
               <li><a href="/about.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">About</a></li>
               <li><a href="/blog.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Blog</a></li>
               <li><a href="/contact.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Contact</a></li>
+              <li><a href="/privacy.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Privacy Policy</a></li>
+              <li><a href="/terms.html" class="text-gray-500 hover:text-[#82B954] hover:pl-1 transition-all">Terms of Service</a></li>
             </ul>
           </div>
         </div>
         <div class="footer-bottom pt-10 border-t border-gray-200 text-center text-gray-500 text-sm">
-          <p>&copy; 2026 Emora. All rights reserved.</p>
+          <p>&copy; 2026 Emora AI. All rights reserved.</p>
         </div>
       </div>
     </footer>
