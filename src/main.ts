@@ -51,12 +51,12 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   // Clean URLs logic (Remove .html from internal links)
-  document.querySelectorAll('a').forEach(link => {
-    const href = link.getAttribute('href');
-    if (href && href.endsWith('.html') && !href.startsWith('http')) {
-      link.setAttribute('href', href.replace('.html', ''));
-    }
-  });
+  // document.querySelectorAll('a').forEach(link => {
+  //   const href = link.getAttribute('href');
+  //   if (href && href.endsWith('.html') && !href.startsWith('http')) {
+  //     link.setAttribute('href', href.replace('.html', ''));
+  //   }
+  // });
 
   // Theme Toggle Logic
   const themeToggle = document.getElementById('theme-toggle');
